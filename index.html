@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <title>裝置解析度查詢</title>
+    <style>
+      body {
+        padding-top: 2em;
+        font-size: 18px;
+        font-family: "Microsoft JhengHei", "Apple LiGothic Medium", "PMingLiU",
+          "sans-serif", "serif";
+      }
+
+      nav {
+        background-color: #333;
+        width: 100%;
+        position: fixed;
+        left: 0;
+        top: 0;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+      }
+
+      nav a {
+        display: inline-block;
+        padding: 0.5em 1em;
+        text-decoration: none;
+        color: #fff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <a href="index.html">螢幕解析度查詢</a>
+    </nav>
+    <h1>螢幕解析度查詢</h1>
+    <p>
+      螢幕解析度與裝置解析度的差異，打開此網頁即自動執行，可了解螢幕實際的解析度與viewport解析度。
+    </p>
+    <script>
+      window.onload = function () {
+        var $inWidth = window.innerWidth;
+        var $iHeight = window.innerHeight;
+        var $diWidth = screen.width;
+        var $diHeight = screen.height;
+        var $Ratio = window.devicePixelRatio;
+        var $body = document.querySelector("body");
+
+        $body.append("1. innerWidth是 = " + $inWidth);
+        $body.insertAdjacentHTML("beforeend", "<br>");
+        $body.append("2. innerHeight是 = " + $iHeight);
+        $body.insertAdjacentHTML("beforeend", "<br>");
+        $body.insertAdjacentHTML("beforeend", "<br>");
+        $body.append("3. device Width是 = " + $diWidth);
+        $body.insertAdjacentHTML("beforeend", "<br>");
+        $body.append("4. device Height是 = " + $diHeight);
+        $body.insertAdjacentHTML("beforeend", "<br>");
+        $body.insertAdjacentHTML("beforeend", "<br>");
+        $body.append("5. 此台裝置的ratio是 = " + $Ratio);
+        $body.insertAdjacentHTML("beforeend", "<br>");
+      };
+    </script>
+  </body>
+</html>
