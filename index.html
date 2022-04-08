@@ -60,17 +60,22 @@
         $body.append("5. 此台裝置的ratio是 = " + $Ratio);
         $body.insertAdjacentHTML("beforeend", "<br>");
 
-        if ('ontouchstart' in document.documentElement) {
-            $body.append('(JS) 此台裝置支援觸控功能');
-            $body.insertAdjacentHTML("beforeend", "<br>");
-         }else{
-            $body.append('(JS) 此台裝置「不」支援觸控功能');
-            $body.insertAdjacentHTML("beforeend", "<br>");
-         }
-         
+        if (isMobile()) {
+          $body.append("(JS) 此台裝置支援觸控功能");
+          $body.insertAdjacentHTML("beforeend", "<br>");
+        } else {
+          $body.append("(JS) 此台裝置「不」支援觸控功能");
+          $body.insertAdjacentHTML("beforeend", "<br>");
+        }
 
-
-
+        function isMobile() {
+          try {
+            document.createEvent("TouchEvent");
+            return true;
+          } catch (e) {
+            return false;
+          }
+        }
       };
     </script>
   </body>
